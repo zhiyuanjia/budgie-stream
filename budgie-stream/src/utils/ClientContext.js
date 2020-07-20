@@ -13,21 +13,6 @@ const ClientProvider = (props) => {
 
 	const [appInfo, setAppInfo] = useState({});
 
-	const [update, setUpdate] = useState({
-		updateDialog: false,
-		rdyForUpdate: false,
-	});
-
-	/*   ipcRenderer.on('update_available', () => {
-    ipcRenderer.removeAllListeners('update_available');
-    setUpdate((prevState) => ({ ...prevState, updateDialog: true }));
-  });
-
-  ipcRenderer.on('update_downloaded', () => {
-    ipcRenderer.removeAllListeners('update_downloaded');
-    setUpdate((prevState) => ({ ...prevState, rdyForUpdate: true }));
-  }); */
-
 	const fetchAppInfo = () => {
 		ipcRenderer.send('appInfo', null);
 
@@ -66,7 +51,6 @@ const ClientProvider = (props) => {
 			value={{
 				playback: [state, setState],
 				app: [appInfo, setAppInfo],
-				updateStatus: [update, setUpdate],
 			}}
 		>
 			{props.children}
