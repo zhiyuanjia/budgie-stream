@@ -20,7 +20,6 @@
     BYTES_PER_SECOND = SAMPLE_RATE * BLOCK_ALIGN; */
 
   var Server = function (inputStream, opts) {
-    console.log(this.server);
     var app = express();
     this.app = app;
     app.use(cors());
